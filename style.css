@@ -7,7 +7,7 @@
 }
 
 body{
-    background-color: #210949;
+    background-color: #27637C;
     font-family: 'Fira Sans Extra Condensed', sans-serif;
 }
 
@@ -30,17 +30,17 @@ body{
     text-align: center;
     padding: 15px;
     margin: 0 auto;
-    font-size: 1.5em;
-    color: #110424;
+    font-size: 1.4em;
+    color: #050C0F;
 }
 
 .notification {
-  background-color: #F3EDFD;
+  background-color: #050C0F;
   display: none;
 }
 
 .notification p {
-  color: #110424;
+  color: #050C0F;
   font-size: 1.2em;
   margin: 0;
   text-align: center;
@@ -50,7 +50,7 @@ body{
 .weather-container{
     width: 300px;
     height: 260px;
-    background-color: #F4F9FF;
+    background-color: #EFF7FA;
 }
 
 .weather-icon{
@@ -71,7 +71,7 @@ body{
 .temperature-value p{
     padding: 0;
     margin: 0;
-    color: #293251;
+    color: #050C0F;
     font-size: 4em;
     text-align: center;
     cursor: pointer;
@@ -82,7 +82,7 @@ body{
 }
 
 .temperature-value span{
-    color: #293251;
+    color: #050C0F;
     font-size: 0.5em;
 }
 
