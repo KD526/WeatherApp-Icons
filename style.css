@@ -35,12 +35,12 @@ body{
 }
 
 .notification {
-  background-color: #050C0F;
+  background-color: #f8d7da;
   display: none;
 }
 
 .notification p {
-  color: #050C0F;
+  color: #721c24;
   font-size: 1.2em;
   margin: 0;
   text-align: center;
