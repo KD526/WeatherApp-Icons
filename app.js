@@ -14,7 +14,7 @@ weather.temperature = {
 
 // variables
 const KELVIN = 273;
-const apiKey = "46098c7949a688b482ae72bccedf24a3";
+const apiKey = "bf65adfda4877f6b5253da659c73729d";
 
 // check if the browser supports geolocation
 if ('geolocation' in navigator) {
@@ -28,11 +28,32 @@ if ('geolocation' in navigator) {
 function setPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  // getWeather(latitude, longitude);
+  getWeather(latitude, longitude);
 }
 
 // show error when there is an issue with geolocation service
 function showError(error){
     notificationElement.style.display = "block";
     notificationElement.innerHTML = `<p> ${error.message} </p>`;
+}
+
+// get weather from api provider
+function getWeather(latitude, longitude) {
+  let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+
+  fetch(api)
+    .then(function(response) {
+      let data = response.json();
+      return data;
+    })
+    .then(function(data) {
+      weather.temperature.value = Math.floor(data.main.temp - KELVIN);
+      weather.description.description = data.weather[0].icon;
+      weather.iconId = data.weather[0].icon;
+      weather.city = data.name;
+      weather.country. data.sys.country;
+    })
+    .then(function() {
+      displayWeather();
+    })
 }
