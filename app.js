@@ -34,12 +34,13 @@ function setPosition(position) {
 // show error when there is an issue with geolocation service
 function showError(error){
     notificationElement.style.display = "block";
-    notificationElement.innerHTML = `<p> ${error.message} </p>`;
+    notificationElement.innerHTML = `<p>${error.message}</p>`;
 }
 
 // get weather from api provider
 function getWeather(latitude, longitude) {
   let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+  console.log(api);
 
   fetch(api)
     .then(function(response) {
@@ -48,12 +49,20 @@ function getWeather(latitude, longitude) {
     })
     .then(function(data) {
       weather.temperature.value = Math.floor(data.main.temp - KELVIN);
-      weather.description.description = data.weather[0].icon;
+      weather.description = data.weather[0].description;
       weather.iconId = data.weather[0].icon;
       weather.city = data.name;
-      weather.country. data.sys.country;
+      weather.country = data.sys.country;
     })
     .then(function() {
       displayWeather();
     })
+}
+
+// display weather to UI
+function displayWeather() {
+  iconElement.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
+  tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
+  descElement.innerHTML = weather.description;
+  locationElement.innerHTML = `${weather.city}, ${weather.country}`;
 }
