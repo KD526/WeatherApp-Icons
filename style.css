@@ -11,6 +11,10 @@ body{
     font-family: 'Fira Sans Extra Condensed', sans-serif;
 }
 
+span {
+  text-transform: uppercase;
+}
+
 .container {
   width: 300px;
   background-color: #FFF;
